@@ -1,28 +1,47 @@
 <template>
-    <div>
-        <router-view></router-view>
-        <TotalStatus/>
-        <TodoList/>
-        <Charts/>
-    </div>
+  <div class="page">
+    <el-button type="primary"
+               v-has='a'
+               value='value'>新增</el-button>
+    <el-button type="primary"
+               v-has="c">新增</el-button>
+
+  </div>
 </template>
 
-<script>
-import TotalStatus from './component/total-status'
-import TodoList from './component/todo-list'
-import Charts from './component/charts'
-
+<script type="text/ecmascript-6">
 export default {
-    data() {
-        return {}
-    },
-    mounted() {
-
-    },
-    components: {
-        TotalStatus,
-        TodoList,
-        Charts
+  name: "page",
+  components: {
+  },
+  data () {
+    return {
+      naem: [1, 1, , 1,]
     }
+  },
+  props: {
+
+  },
+  watch: {
+
+  },
+  methods: {
+
+  },
+  computed: {
+
+  },
+  created () {
+
+  },
+  mounted () {
+
+  },
+  destroyed () {
+
+  },
 }
 </script>
+
+<style scoped lang="scss">
+</style>

@@ -19,18 +19,28 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: false,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
+    // proxy: {
+    //   "/api": {
+    //     // target: "https://127.0.0.0:8080", // 目标主机
+    //     target: "http://127.0.0.1:8000",
+    //     ws: true, //代理的WebSockets
+    //     changeOrigin: true, // 允许websockets跨域
+    //     pathRewrite: {
+    //       "^/api": ""
+    //     }
+    //   }
+    // },
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
 
     /**
-     * Source Maps
-     */
+* Source Maps
+*/
 
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'cheap-source-map',
@@ -45,7 +55,7 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false,
+    cssSourceMap: false
   },
 
   build: {
@@ -60,8 +70,8 @@ module.exports = {
     assetsPublicPath: './',
 
     /**
-     * Source Maps
-     */
+* Source Maps
+*/
 
     productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production

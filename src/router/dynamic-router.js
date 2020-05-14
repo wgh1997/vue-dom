@@ -1,107 +1,168 @@
 /* 订单管理 */
-const Order = () => import('pages/order-manage')
-const OrderList = () => import('pages/order-manage/order-list')
-const ProductManage = () => import('pages/order-manage/product-manage')
-const ProductionList = () =>
-    import('pages/order-manage/product-manage/production-list')
-const ReviewManage = () =>
-    import('pages/order-manage/product-manage/review-manage')
-const ReturnGoods = () => import('pages/order-manage/return-goods')
+// const Order = () => import('pages/order-manage')
+const dragTable = () => import('pages/Table/dragTable.vue')
+const compileTable = () => import('pages/Table/compileTable')
+// const ProductionList = () =>
+//   import('pages/order-manage/product-manage/production-list')
+// const ReviewManage = () =>
+//   import('pages/order-manage/product-manage/review-manage')
+const Table = () => import('pages/Table/index.vue')
 
 /* 产品管理 */
 const Goods = () => import('pages/goods-manage')
 const GoodsList = () => import('pages/goods-manage/goods-list')
 const GoodsClassify = () => import('pages/goods-manage/goods-classify')
+// 导出
+const Export = () => import("pages/Export/index.vue")
+//Echartsjs
+const Echartsjs = () => import("pages/Echartsjs/index.vue")
+//拖拽
+const Dialog = () => import("pages/Drag/Dialog.vue")
+const Drag = () => import("pages/Drag")
+const Select = () => import("pages/Drag/Select.vue")
+const Kanban = () => import("pages/Drag/Kanban.vue")
+
+//富士文本编辑器Tinymce
+const Tinymce = () => import("pages/Tinymce")
 
 /* 需要权限判断的路由 */
 const dynamicRoutes = [
-    {
-        path: '/order',
-        component: Order,
-        name: 'order-manage',
-        meta: {
-            name: '订单管理',
-            icon: 'icon-email'
-        },
-        children: [
-            {
-                path: 'list',
-                name: 'order-list',
-                component: OrderList,
-                meta: {
-                    name: '订单列表',
-                    icon: 'icon-quit'
-                }
-            },
-            {
-                path: 'product',
-                name: 'product-manage',
-                component: ProductManage,
-                meta: {
-                    name: '生产管理',
-                    icon: 'icon-service'
-                },
-                children: [
-                    {
-                        path: 'list',
-                        name: 'product-list',
-                        component: ProductionList,
-                        meta: {
-                            name: '生产列表',
-                            icon: 'icon-nav'
-                        }
-                    },
-                    {
-                        path: 'review',
-                        name: 'review-manage',
-                        component: ReviewManage,
-                        meta: {
-                            name: '审核管理',
-                            icon: 'icon-finance-manage'
-                        }
-                    }
-                ]
-            },
-            {
-                path: 'returnGoods',
-                name: 'return-goods',
-                component: ReturnGoods,
-                meta: {
-                    name: '退货管理',
-                    icon: 'icon-product-manage'
-                }
-            }
-        ]
+  {
+    path: '/order',
+    component: Goods,
+    name: 'order-manage',
+    meta: {
+      name: 'Table',
+      icon: 'icon-email'
     },
-    {
-        path: '/goods',
-        component: Goods,
-        name: 'goods',
+    children: [
+      {
+        path: 'dragTable',
+        name: 'dragTable',
+        component: dragTable,
         meta: {
-            name: '产品管理',
-            icon: 'icon-order-manage'
-        },
-        children: [
-            {
-                path: 'list',
-                name: 'goods-list',
-                component: GoodsList,
-                meta: {
-                    name: '产品列表',
-                    icon: 'icon-home'
-                }
-            },
-            {
-                path: 'classify',
-                name: 'goods-classify',
-                component: GoodsClassify,
-                meta: {
-                    name: '产品分类',
-                    icon: 'icon-product-manage'
-                }
-            }
-        ]
-    }
+          name: '拖拽 Table',
+          icon: 'icon-quit'
+        }
+      },
+      {
+        path: 'compileTable',
+        name: 'compileTable',
+        component: compileTable,
+        meta: {
+          name: 'Table 内编辑',
+          icon: 'icon-service'
+        }
+
+      },
+      {
+        path: 'Table',
+        name: 'Table',
+        component: Table,
+        meta: {
+          name: 'Table',
+          icon: 'icon-product-manage'
+        }
+      }
+    ]
+  },
+  {
+    path: '/goods',
+    component: Goods,
+    name: 'goods',
+    meta: {
+      name: '产品管理',
+      icon: 'icon-order-manage'
+    },
+    children: [
+      {
+        path: 'list',
+        name: 'goods-list',
+        component: GoodsList,
+        meta: {
+          name: '产品列表',
+          icon: 'icon-home'
+        }
+      },
+      {
+        path: 'classify',
+        name: 'goods-classify',
+        component: GoodsClassify,
+        meta: {
+          name: '产品分类',
+          icon: 'icon-product-manage'
+        }
+      }
+    ]
+  },
+  {
+    path: '/Export',
+    component: Export,
+    name: 'Export',
+    meta: {
+      name: '导出导入',
+      icon: 'icon-order-manage'
+    },
+
+  },
+  {
+    path: '/Echartsjs',
+    component: Echartsjs,
+    name: 'Echartsjs',
+    meta: {
+      name: 'Echartsjs',
+      icon: 'icon-order-manage'
+    },
+
+  },
+  {
+    path: '/grag',
+    component: Goods,
+    name: 'Drag',
+    meta: {
+      name: '拖拽组件',
+      icon: 'icon-order-manage'
+    },
+    children: [
+      {
+        path: 'dialog',
+        name: 'dialog',
+        component: Dialog,
+        meta: {
+          name: '拖拽Dialog',
+          icon: 'icon-home'
+        }
+      },
+      {
+        path: 'select',
+        name: 'select',
+        component: Select,
+        meta: {
+          name: '列表拖拽',
+          icon: 'icon-product-manage'
+        }
+      },
+      {
+        path: 'kanban',
+        name: 'kanban',
+        component: Kanban,
+        meta: {
+          name: '可拖拽看板',
+          icon: 'icon-product-manage'
+        }
+      },
+    ]
+
+  }, {
+    path: '/tinymce',
+    component: Tinymce,
+    name: 'tinymce',
+    meta: {
+      name: '富文本编辑器',
+      icon: 'icon-order-manage'
+    },
+
+  },
 ]
 
 export default dynamicRoutes
